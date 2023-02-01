@@ -1,5 +1,6 @@
 # vue-calculator
-
+<a href='https://github.com/shivamkapasia0' target="_blank"><img alt='vue.js' src='https://img.shields.io/badge/vue-100000?style=for-the-badge&logo=vue.js&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://github.com/shivamkapasia0' target="_blank"><img alt='vite' src='https://img.shields.io/badge/vite-100000?style=for-the-badge&logo=vite&logoColor=white&labelColor=black&color=black'/></a>
 A basic calculator made with Vue.js
 
 ## Main features
