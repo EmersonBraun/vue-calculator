@@ -22,10 +22,11 @@
 </template>
 
 <script>
-import Button from './../components/Button'
-import Display from './../components/Display'
+import Button from './../components/Button.vue'
+import Display from './../components/Display.vue'
+import Footer from './../components/Footer.vue'
 export default {
-    components: {Button,Display},
+    components: { Button, Display, Footer },
     data() {
         return {
             displayValue: '0',
@@ -40,7 +41,7 @@ export default {
             Object.assign(this.$data, this.$options.data())
         },
         setOperation(operation) {
-            if(this.current === 0) {
+            if (this.current === 0) {
                 this.operation = operation
                 this.current = 1
                 this.clearDisplay = true
@@ -53,7 +54,7 @@ export default {
                         `${this.values[0]} ${currentOperation} ${this.values[1]}`
                     )
                 } catch (error) {
-                    this.$emit('onError',error)
+                    this.$emit('onError', error)
                 }
 
                 this.values[1] = 0
@@ -62,20 +63,20 @@ export default {
                 this.current = esquals ? 0 : 1
                 this.clearDisplay = !esquals
             }
-            
+
         },
         addDigit(digit) {
-            if(digit === '.' && this.displayValue.includes('.')){
+            if (digit === '.' && this.displayValue.includes('.')) {
                 return
             }
             const clearDisplay = this.displayValue === '0' ||
-            this.clearDisplay
+                this.clearDisplay
             const currentValue = clearDisplay ? '' : this.displayValue
             const displayValue = currentValue + digit
             this.displayValue = displayValue
             this.clearDisplay = false
-            
-            if(digit !== '.') {
+
+            if (digit !== '.') {
                 const i = this.current
                 const newValue = parseFloat(displayValue)
                 this.values[i] = newValue
@@ -87,12 +88,23 @@ export default {
 
 <style>
 .calculator {
-    height: 320px;
-    width: 235px;
+    height: 450px;
+    width: 300px;
     border-radius: 5px;
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: 1fr 48px 48px 48px 48px 48px;
+    grid-template-rows: 1fr 65px 65px 65px 65px 65px;
+
+    color: #fff;
+    margin: 8px;
+    background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+    box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+        inset 0 -8px 8px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(0, 0, 0, 0.75),
+        10px 20px 25px rgba(0, 0, 0, 0.4);
+    user-select: none;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 10px;
 }
 </style>

@@ -1,21 +1,19 @@
 <template>
     <div id="app">
-        <h1>Calculator</h1>
         <Calculator></Calculator>
+        <Footer />
     </div>
 </template>
 
 <script>
-import Calculator from './main/Calculator'
+import Calculator from './main/Calculator.vue'
+import Footer from './components/Footer.vue'
 export default {
-    components: {Calculator}
+    components: { Calculator, Footer }
 }
 </script>
 
 <style scoped>
-body {
-    margin: 0;
-}
 #app {
     display: flex;
     flex-direction: column;
@@ -24,6 +22,6 @@ body {
     align-items: center;
     text-align: center;
     color: #fff;
-    background: linear-gradient(to right, rgb(83,105,118), rgb(41,46,73))
+    background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73))
 }
 </style>
